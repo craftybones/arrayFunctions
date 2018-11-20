@@ -1,8 +1,8 @@
 const assert = require('assert');
-const lib = require('../functionLib.js');
+const lib = require('./functionLib.js');
 const map = lib.map;
 
-//========================(map function map)==============\\
+//========================(map function test)==============\\
 
 const square = function(number) {
   return number*number;
@@ -13,6 +13,7 @@ const squareRoot = function(number) {
 }
 
 const mapTestWithSquare = function(){
+  assert.deepEqual(map(square, []), []);
   assert.deepEqual(map(square, [1]), [1]);
   assert.deepEqual(map(square, [1,2]), [1,4]);
   assert.deepEqual(map(square, [1,2,3,4]), [1,4,9,16]);
@@ -20,6 +21,7 @@ const mapTestWithSquare = function(){
 }
 
 const mapTestWithSquareRoot = function(){
+  assert.deepEqual(map(squareRoot, []), []);
   assert.deepEqual(map(squareRoot, [1]), [1]);
   assert.deepEqual(map(squareRoot, [1,4]), [1,2]);
   assert.deepEqual(map(squareRoot, [1,4,9,16]), [1,2,3,4]);
