@@ -5,4 +5,14 @@ const map = function(fnName, source) {
   }
   return result;
 }
+
+const filter = function(fnName, source) {
+  let result = [];
+  for (element of source) {
+    !fnName(element)||result.push(element);
+  }
+  return result;
+}
+
+exports.filter = filter;
 exports.map = map;
