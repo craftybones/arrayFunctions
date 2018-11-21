@@ -26,6 +26,18 @@ const reduce = function(reducer, source, initializer) {
   return result;
 }
 
+const reducer = function(mapper) { 
+  return function(initialValue,element) {
+    initialValue.push(mapper(element));
+    return initialValue;
+  }
+}
+
+const mapPrime = function(mapper, source) {
+  return reduce(reducer(mapper), source, []);
+}
+
+exports.mapPrime = mapPrime;
 exports.reduce = reduce;
 exports.filter = filter;
 exports.map = map;
