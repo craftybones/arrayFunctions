@@ -1,28 +1,27 @@
-const map = function(fnName, source) {
+const map = function(mapper, source) {
   let result = [];
   for(let index=0; index<source.length; index++) {
-    result.push(fnName(source[index]));
+    result.push(mapper(source[index]));
   }
   return result;
 }
 
-const filter = function(fnName, source) {
+const filter = function(predicate, source) {
   let result = [];
   for (element of source) {
-    !fnName(element)||result.push(element);
+    !predicate(element)||result.push(element);
   }
   return result;
 }
 
-const reduce = function(fnName, source, initializer) {
+const reduce = function(reducer, source, initializer) {
   let sourceCopy = source.slice();
   if(initializer == undefined) {
     initializer = sourceCopy.splice(0,1)[0];
   }
   let result = initializer;
   for(let index=0; index<sourceCopy.length; index++) {
-    result = fnName(initializer,sourceCopy[index]);
-    initializer = result;
+    result = reducer(result,sourceCopy[index]);
   }
   return result;
 }
