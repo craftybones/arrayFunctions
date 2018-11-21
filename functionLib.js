@@ -15,13 +15,13 @@ const filter = function(fnName, source) {
 }
 
 const reduce = function(fnName, source, initializer) {
+  let sourceCopy = source.slice();
+  if(initializer == undefined) {
+    initializer = sourceCopy.splice(0,1)[0];
+  }
   let result = initializer;
-  for(let index=0; index<source.length; index++) {
-    if(initializer == undefined) {
-      initializer = source[0];
-      index ++;
-    }
-    result = fnName(initializer,source[index]);
+  for(let index=0; index<sourceCopy.length; index++) {
+    result = fnName(initializer,sourceCopy[index]);
     initializer = result;
   }
   return result;
