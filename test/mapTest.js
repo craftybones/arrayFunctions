@@ -1,5 +1,5 @@
 const assert = require('assert');
-const lib = require('../functionLib.js');
+const lib = require('../src/functionLib.js');
 const map = lib.map;
 
 //========================(map function map)==============\\

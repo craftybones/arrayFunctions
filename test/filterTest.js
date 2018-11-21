@@ -1,5 +1,5 @@
 const assert = require('assert');
-const filter = require('../functionLib').filter;
+const filter = require('../src/functionLib').filter;
 
 const isEven = function(number) {
   return number % 2 == 0;

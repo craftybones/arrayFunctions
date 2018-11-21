@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { reduce } = require('../functionLib');
+const { reduce } = require('../src/functionLib');
 
 const greatestOfTwoNums = function(firstNumber, secondNumber = firstNumber) {
   return Math.max(firstNumber,secondNumber);
