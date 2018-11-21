@@ -13,19 +13,19 @@ const squareRoot = function(number) {
 }
 
 describe("mapPrime", function() {
-  it("testing with single element array", function() {
+  it("of an array of one element should return an array of one element", function() {
     assert.deepEqual(mapPrime(square, [1]), [1]);
     assert.deepEqual(mapPrime(squareRoot, [1]), [1]);
+    assert.deepEqual(mapPrime(square, [0]),[0]);
+    assert.deepEqual(mapPrime(squareRoot, [0]),[0]);
   });
-  it("testing with multiple elements array", function() {
+  it("of an array of multiple elements should return an array of multiple elements", function() {
     assert.deepEqual(mapPrime(square, [1,2]), [1,4]);
     assert.deepEqual(mapPrime(square, [1,2,3,4]), [1,4,9,16]);
     assert.deepEqual(mapPrime(squareRoot, [1,4]), [1,2]);
     assert.deepEqual(mapPrime(squareRoot, [1,4,9,16]), [1,2,3,4]);
   });
-  it("testing with array contain element 0 and empty array", function() {
-    assert.deepEqual(mapPrime(square, [0]),[0]);
-    assert.deepEqual(mapPrime(squareRoot, [0]),[0]);
+  it("of an empty array should return an empty array", function() {
     assert.deepEqual(mapPrime(square, []),[]);
     assert.deepEqual(mapPrime(squareRoot, []),[]);
   });

@@ -17,7 +17,7 @@ const filter = function(predicate, source) {
 const reduce = function(reducer, source, initializer) {
   let sourceCopy = source.slice();
   if(initializer == undefined) {
-    initializer = sourceCopy.splice(0,1)[0];
+    initializer = sourceCopy.shift();
   }
   let result = initializer;
   for(let index=0; index<sourceCopy.length; index++) {
