@@ -37,7 +37,7 @@ const mapPrime = function(mapFn, src) {
   return reduce(reducingFn(mapFn), src, []);
 }
 
-const predicateGenerator = function(predicate) { 
+const predGenerator = function(predicate) { 
   return function(initialValue,element) {
     if(predicate(element)){
     initialValue.push(element);
@@ -47,7 +47,7 @@ const predicateGenerator = function(predicate) {
 }
 
 const filterPrime = function(predicate, source) {
-  return reduce(predicateGenerator(predicate),source,[]);
+  return reduce(predGenerator(predicate),source,[]);
 }
 
 exports.mapPrime = mapPrime;
