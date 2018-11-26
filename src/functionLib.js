@@ -14,19 +14,19 @@ const filter = function(predicate, source) {
   return result;
 }
 
-const reduce = function(reducer, source, initializer) {
+const reduce = function(reducingFn, source, initializer) {
   let sourceCopy = source.slice();
   if(initializer == undefined) {
     initializer = sourceCopy.shift();
   }
   let result = initializer;
   for(let index=0; index<sourceCopy.length; index++) {
-    result = reducer(result,sourceCopy[index]);
+    result = reducingFn(result,sourceCopy[index]);
   }
   return result;
 }
 
-const reducer = function(mapper) { 
+const reducingFn = function(mapper) { 
   return function(initialValue,element) {
     initialValue.push(mapper(element));
     return initialValue;
@@ -34,7 +34,7 @@ const reducer = function(mapper) {
 }
 
 const mapPrime = function(mapper, source) {
-  return reduce(reducer(mapper), source, []);
+  return reduce(reducingFn(mapper), source, []);
 }
 
 const predicateGenerator = function(predicate) { 
