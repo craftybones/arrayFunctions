@@ -33,8 +33,8 @@ const reducingFn = function(mapper) {
   }
 }
 
-const mapPrime = function(mapper, source) {
-  return reduce(reducingFn(mapper), source, []);
+const mapPrime = function(mapper, src) {
+  return reduce(reducingFn(mapper), src, []);
 }
 
 const predicateGenerator = function(predicate) { 
